@@ -14,13 +14,22 @@ const publishMessage = message => {
   });
 }
 
+const resolveClient = client => {
+  let identity = '';
+
+  if (client) {
+    return 'Client ' + client.id;
+  }
+  return 'Unknown client';
+}
+
 server.on('ready', client => {
   log('info', 'MQTT server is ready');
 });
 server.on('clientConnected', client => {
-  log('info', 'Client connected: ' + client.id);
+  log('info', 'Client connected: ' + resolveClient(client));
 });
 
 server.on('published', (packet, client) => {
-  log('info', 'Client ' + client + ' published: ' + packet);
+  log('info', resolveClient(client) + ' published to ' + packet.topic);
 });
