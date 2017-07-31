@@ -1,4 +1,11 @@
 {
+  "name": "mqtt-broker",
+  "version": "1.0.0",
+  "description": "MQTT broker for HomeKit",
+  "main": "index.js",
+  "repository": "git@github.com:osk2/mqtt-broker.git",
+  "author": "osk2 <sc60714@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^2.0.1",
     "moment": "^2.18.1",
