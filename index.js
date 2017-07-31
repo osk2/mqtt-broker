@@ -8,9 +8,19 @@ const server = new mosca.Server({
   }
 });
 
+const publishMessage = message => {
+  server.publish(message, () => {
+    log('info', 'Published message to ' + message.topic);
+  });
+}
+
 server.on('ready', client => {
   log('info', 'MQTT server is ready');
 });
 server.on('clientConnected', client => {
-  log('info', 'Client connected', client.id);
+  log('info', 'Client connected: ' + client.id);
+});
+
+server.on('published', (packet, client) => {
+  log('info', 'Client ' + client + ' published: ' + packet);
 });
