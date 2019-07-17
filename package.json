@@ -9,6 +9,6 @@
   "dependencies": {
     "chalk": "^2.0.1",
     "moment": "^2.18.1",
-    "mosca": "^2.5.2"
+    "mosca": "^2.8.2"
   }
 }
